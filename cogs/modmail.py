@@ -405,7 +405,7 @@ class Modmail(commands.Cog):
             if thread.close_task is not None or thread.auto_close_task is not None:
                 await thread.cancel_closure(all=True)
                 embed = discord.Embed(
-                    color=self.bot.error_color, description="Scheduled close has been cancelled."
+                    color=self.bot.error_color, description="Scheduled close has been cancelled! ❌"
                 )
             else:
                 embed = discord.Embed(
@@ -515,7 +515,7 @@ class Modmail(commands.Cog):
         self, ctx, *, user_or_role: Union[discord.Role, User, str.lower, None] = None
     ):
         """
-        Notify a user, role, or yourself for every thread message received.
+        🔔 Notify a user, role, or yourself for every thread message received.
 
         You will be pinged for every thread message received until you unsubscribe.
 
@@ -555,7 +555,7 @@ class Modmail(commands.Cog):
         self, ctx, *, user_or_role: Union[discord.Role, User, str.lower, None] = None
     ):
         """
-        Unsubscribe a user, role, or yourself from a thread.
+        🔕 Unsubscribe a user, role, or yourself from a thread.
 
         Leave `user_or_role` empty to unsubscribe yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
@@ -590,7 +590,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.MODERATOR)
     @checks.thread_only()
     async def nsfw(self, ctx):
-        """Flags a Modmail thread as NSFW (not safe for work)."""
+        """🔞 Flags a Modmail thread as NSFW (not safe for work)."""
         await ctx.channel.edit(nsfw=True)
         sent_emoji, _ = await self.bot.retrieve_emoji()
         await self.bot.add_reaction(ctx.message, sent_emoji)
