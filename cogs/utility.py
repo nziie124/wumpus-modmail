@@ -665,7 +665,7 @@ class Utility(commands.Cog):
     async def ping(self, ctx):
         """🏓 Pong! Returns your websocket latency."""
         embed = discord.Embed(
-            title="🏓 Pong! Nziie smells:",
+            title="🏓 Pong! Websocket Latency:",
             description=f"{self.bot.ws.latency * 1000:.4f} ms",
             color=discord.Colour.random(),
         )
