@@ -772,7 +772,7 @@ class Thread:
             else:
                 description = (
                     "Your message could not be delivered due "
-                    "to an unknown error. Check `?debug` for "
+                    "to an unknown error. Message Nziie for "
                     "more information"
                 )
             tasks.append(
