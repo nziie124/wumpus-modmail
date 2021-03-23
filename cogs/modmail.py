@@ -590,7 +590,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.MODERATOR)
     @checks.thread_only()
     async def nsfw(self, ctx):
-        """Flags a Modmail thread as NSFW (not safe for work)."""
+        """🔞 Flags a Modmail thread as NSFW (not safe for work)."""
         await ctx.channel.edit(nsfw=True)
         sent_emoji, _ = await self.bot.retrieve_emoji()
         await self.bot.add_reaction(ctx.message, sent_emoji)
@@ -599,7 +599,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.SUPPORTER)
     @checks.thread_only()
     async def sfw(self, ctx):
-        """Flags a Modmail thread as SFW (safe for work)."""
+        """🐱 Flags a Modmail thread as SFW (safe for work)."""
         await ctx.channel.edit(nsfw=False)
         sent_emoji, _ = await self.bot.retrieve_emoji()
         await self.bot.add_reaction(ctx.message, sent_emoji)
@@ -623,7 +623,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     @checks.thread_only()
     async def loglink(self, ctx):
-        """Retrieves the link to the current thread's logs."""
+        """🗂 Retrieves the link to the current thread's logs."""
         log_link = await self.bot.api.get_log_link(ctx.channel.id)
         await ctx.send(embed=discord.Embed(color=self.bot.main_color, description=log_link))
 
@@ -685,7 +685,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     async def logs(self, ctx, *, user: User = None):
         """
-        Get previous Modmail thread logs of a member.
+        🗂 Get previous Modmail thread logs of a member.
 
         Leave `user` blank when this command is used within a
         thread channel to show logs for the current recipient.
@@ -981,7 +981,7 @@ class Modmail(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def selfcontact(self, ctx):
-        """Creates a thread with yourself"""
+        """📬 Creates a thread with yourself"""
         await ctx.invoke(self.contact, user=ctx.author)
 
     @commands.command(usage="<user> [category] [options]")
@@ -1021,7 +1021,7 @@ class Modmail(commands.Cog):
             embed = discord.Embed(
                 color=self.bot.error_color,
                 description="A thread for this user already "
-                f"exists in {exists.channel.mention}.",
+                f"exists in {exists.channel.mention}!",
             )
             await ctx.channel.send(embed=embed, delete_after=3)
 
@@ -1046,7 +1046,7 @@ class Modmail(commands.Cog):
 
             embed = discord.Embed(
                 title="Created Thread",
-                description=f"Thread started by {ctx.author.mention} for {user.mention}.",
+                description=f"Thread started by {ctx.author.mention} for {user.mention}!",
                 color=self.bot.main_color,
             )
             await thread.wait_until_ready()
@@ -1524,7 +1524,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def enable(self, ctx):
         """
-        Re-enables DM functionalities of Modmail.
+        🟢 Re-enables DM functionalities of Modmail.
 
         Undo's the `{prefix}disable` command, all DM will be relayed after running this command.
         """
@@ -1544,7 +1544,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def disable(self, ctx):
         """
-        Disable partial or full Modmail thread functions.
+        🟡 Disable partial or full Modmail thread functions.
 
         To stop all new threads from being created, do `{prefix}disable new`.
         To stop all existing threads from DMing Modmail, do `{prefix}disable all`.
@@ -1556,7 +1556,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def disable_new(self, ctx):
         """
-        Stop accepting new Modmail threads.
+        🔴 Stop accepting new Modmail threads.
 
         No new threads can be created through DM.
         """
@@ -1575,7 +1575,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def disable_all(self, ctx):
         """
-        Disables all DM functionalities of Modmail.
+        🔴 Disables all DM functionalities of Modmail.
 
         No new threads can be created through DM nor no further DM messages will be relayed.
         """
@@ -1595,7 +1595,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def isenable(self, ctx):
         """
-        Check if the DM functionalities of Modmail is enabled.
+        📊 Check if the DM functionalities of Modmail is enabled.
         """
 
         if self.bot.config["dm_disabled"] == DMDisabled.NEW_THREADS:
