@@ -478,7 +478,7 @@ class Modmail(commands.Cog):
         self, ctx, *, user_or_role: Union[discord.Role, User, str.lower, None] = None
     ):
         """
-        Un-notify a user, role, or yourself from a thread.
+        🔕 Un-notify a user, role, or yourself from a thread.
 
         Leave `user_or_role` empty to un-notify yourself.
         `@here` and `@everyone` can be substituted with `here` and `everyone`.
@@ -599,7 +599,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.SUPPORTER)
     @checks.thread_only()
     async def sfw(self, ctx):
-        """Flags a Modmail thread as SFW (safe for work)."""
+        """🐱 Flags a Modmail thread as SFW (safe for work)."""
         await ctx.channel.edit(nsfw=False)
         sent_emoji, _ = await self.bot.retrieve_emoji()
         await self.bot.add_reaction(ctx.message, sent_emoji)
@@ -623,7 +623,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     @checks.thread_only()
     async def loglink(self, ctx):
-        """Retrieves the link to the current thread's logs."""
+        """📬 Retrieves the link to the current thread's logs."""
         log_link = await self.bot.api.get_log_link(ctx.channel.id)
         await ctx.send(embed=discord.Embed(color=self.bot.main_color, description=log_link))
 
@@ -685,7 +685,7 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     async def logs(self, ctx, *, user: User = None):
         """
-        Get previous Modmail thread logs of a member.
+        🗂 Get previous Modmail thread logs of a member.
 
         Leave `user` blank when this command is used within a
         thread channel to show logs for the current recipient.
