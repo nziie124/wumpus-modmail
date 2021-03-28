@@ -45,7 +45,7 @@ class ConfigManager:
         "mention_channel_id": None,
         "update_channel_id": None,
         # updates
-        "update_notifications": True,
+        "update_notifications": False,
         # threads
         "sent_emoji": "✅",
         "blocked_emoji": "🚫",
