@@ -632,8 +632,8 @@ class Modmail(commands.Cog):
             print(str(e))
         msgg = msg.embeds[0]
         await ctx.send(f"```{msgg.description}```")
-    
-@raw.command()
+   
+    @raw.command()
     @checks.has_permissions(PermissionLevel.SUPPORTER)
     async def raw_plain(self, ctx, message_id: int=None):
         """`[New]` - 📄 Prints out the raw content of an embed (non-codeblock)."""
