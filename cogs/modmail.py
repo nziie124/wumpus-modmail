@@ -620,6 +620,19 @@ class Modmail(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
+    @checks.has_permissions(PermissionLevel.SUPPORTER)
+    async def raw(self, ctx, message_id: int=None):
+        if message_id is None:
+            return await ctx.send("Please provide a message ID")
+        
+        try:
+            msg = await ctx.fetch_message(message_id)
+        except Exception as e:
+            print(str(e))
+        msgg = msg.embeds[0]
+        await ctx.send(f"```{msgg.description}```")
+
+    @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
     @checks.thread_only()
     async def loglink(self, ctx):
