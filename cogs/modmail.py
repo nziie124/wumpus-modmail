@@ -25,7 +25,7 @@ logger = getLogger(__name__)
 
 
 class Modmail(commands.Cog):
-    """Commands directly related to Modmail functionality."""
+    """📬 Modmail Commands"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -356,7 +356,7 @@ class Modmail(commands.Cog):
 
         embed = discord.Embed(
             title="Scheduled close",
-            description=f"🔒 {self.bot.prefix}close cancel - To cancel close!",
+            description=f"🕕 This thread will close {silent}in `{human_delta}`!",
             color=discord.Colour.random(),
         )
 
