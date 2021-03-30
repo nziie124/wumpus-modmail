@@ -95,8 +95,8 @@ class ModmailHelpCommand(commands.HelpCommand):
             embed.set_author(name=name + continued, icon_url=bot.user.avatar_url)
 
             embed.set_footer(
-                text=f'Type "{prefix}{self.command_attrs["name"]} command" '
-                "for more help on a specific command."
+                text=f'Use "{prefix}{self.command_attrs["name"]} command" '
+                "for more help on a command"
             )
             embeds.append(embed)
         return embeds
