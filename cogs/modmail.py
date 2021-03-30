@@ -647,6 +647,17 @@ class Modmail(commands.Cog):
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
+    async def members(self, ctx):
+        """👤 Prints out the current server's member count."""
+        embed = discord.Embed(
+            description="**`{ctx.guild.member_count}` member(s)**",
+            timestamp=datetime.utcnow(),
+            color=discord.Colour.blurple(),
+        )
+        return await ctx.send(embed=embed)
+
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.REGULAR)
     async def time(self, ctx):
         """🕐 Prints the current time in your area."""
         embed = discord.Embed(
