@@ -25,7 +25,7 @@ logger = getLogger(__name__)
 
 
 class Modmail(commands.Cog):
-    """📬 Modmail Commands"""
+    """📬 Modmail Commands - `⭐` = New"""
 
     def __init__(self, bot):
         self.bot = bot
