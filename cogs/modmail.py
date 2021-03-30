@@ -633,15 +633,13 @@ class Modmail(commands.Cog):
         msgg = msg.embeds[0]
         await ctx.send(f"```{msgg.description}```")
 
-    @commands.command()
-    @checks.has_permissions(PermissionLevel.SUPPORTER)
-    async def test(self, ctx):
-        """A testing command - Ignore"""
+    @commands.command(aliases=["premium")
+    @checks.has_permissions(PermissionLevel.REGULAR)
+    async def patreon(self, ctx):
+        """🔶 Shows our Patreon page link/info."""
         embed = discord.Embed(
-            title="Testing Command",
-            description="Test",
-            timestamp=datetime.utcnow(),
-            color=discord.Colour.random(),
+            description="<:patreon:826564054470361139> • [Our Patreon](https://www.patreon.com/wumpus_ads)",
+            color=discord.Colour.orange(),
         )
         return await ctx.send(content=ctx.message.author.mention , embed=embed)
     
