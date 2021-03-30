@@ -635,7 +635,6 @@ class Modmail(commands.Cog):
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
-    @utils.trigger_typing
     async def test(ctx):
         """A testing command - Ignore"""
         embed = discord.Embed(
@@ -643,7 +642,7 @@ class Modmail(commands.Cog):
             description="Test",
             color=discord.Colour.random(),
         )
-        return await ctx.send(content=ctx.message.author.mention , embed=embed)
+        return await ctx.send(embed=embed)
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
