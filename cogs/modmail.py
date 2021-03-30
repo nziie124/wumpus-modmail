@@ -642,7 +642,7 @@ class Modmail(commands.Cog):
             description="Test",
             color=discord.Colour.random(),
         )
-        return await ctx.send(content=ctx.messages.author.mention , embed=embed)
+        return await ctx.send(content=ctx.message.author.mention , embed=embed)
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
