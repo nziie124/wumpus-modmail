@@ -640,6 +640,7 @@ class Modmail(commands.Cog):
         embed = discord.Embed(
             title="Testing Command",
             description="Test",
+            timestamp=datetime.utcnow(),
             color=discord.Colour.random(),
         )
         return await ctx.send(content=ctx.message.author.mention , embed=embed)
