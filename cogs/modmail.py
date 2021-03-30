@@ -633,7 +633,7 @@ class Modmail(commands.Cog):
         msgg = msg.embeds[0]
         await ctx.send(f"```{msgg.description}```")
 
-    @commands.command(aliases=["premium")
+    @commands.command(aliases=["premium"])
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def patreon(self, ctx):
         """🔶 Shows our Patreon page link/info."""
