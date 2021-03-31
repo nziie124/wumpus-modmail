@@ -293,12 +293,12 @@ class Thread:
 
         created = str((time - user.created_at).days)
         embed = discord.Embed(
-            color=color, description=f"{user.mention} was created {days(created)}", timestamp=time
+            color=color, description=f"{user.mention} `[{user.id}]` was created `{days(created)}`", timestamp=time
         )
 
         # if not role_names:
-        #     embed.add_field(name='Mention', value=user.mention)
-        # embed.add_field(name='Registered', value=created + days(created))
+        #     embed.add_field(name='🛎 Mention', value=user.mention)
+        # embed.add_field(name='📋 Registered', value=created + days(created))
 
         if user.dm_channel:
             footer = f"👤 User ID: {user.id} • "
@@ -320,13 +320,6 @@ class Thread:
             embed.set_footer(text=footer)
         else:
             embed.set_footer(text=f"👤 {footer} • (Not in main server)")
-
-        if log_count is not None:
-            # embed.add_field(name="📁 Past logs", value=f"{log_count}")
-            thread = "thread" if log_count == 1 else "threads"
-            embed.description += f" with **{log_count or 'no'}** past {thread}."
-        else:
-            embed.description += "."
 
         mutual_guilds = [g for g in self.bot.guilds if user in g.members]
         if member is None or len(mutual_guilds) > 1:
