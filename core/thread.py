@@ -324,7 +324,7 @@ class Thread:
         mutual_guilds = [g for g in self.bot.guilds if user in g.members]
         if member is None or len(mutual_guilds) > 1:
             embed.add_field(
-                name="Mutual Server(s)", value=", ".join(g.name for g in mutual_guilds)
+                name="👥 Mutual Server(s)", value=", ".join(g.name for g in mutual_guilds)
             )
 
         return embed
@@ -980,7 +980,7 @@ class Thread:
         elif note:
             embed.colour = self.bot.main_color
         else:
-            embed.set_footer(text="Reply")
+            embed.set_footer(text="User")
             embed.colour = self.bot.recipient_color
 
         if (from_mod or note) and not thread_creation:
@@ -1029,7 +1029,7 @@ class Thread:
                 msg = await destination.send(plain_message, files=files)
             else:
                 # Plain to mods
-                embed.set_footer(text="[PLAIN] " + embed.footer.text)
+                embed.set_footer(text="[Plain Message] " + embed.footer.text)
                 msg = await destination.send(mentions, embed=embed)
 
         else:
@@ -1096,7 +1096,7 @@ class ThreadManager:
                 )
                 if thread is not None:
                     logger.debug("Found thread with tempered ID.")
-                    await channel.edit(topic=f"User ID: {user_id}")
+                    await channel.edit(topic=f"`{user_id}`")
             return thread
 
         if recipient:
@@ -1120,7 +1120,7 @@ class ThreadManager:
                     thread = None
         else:
             channel = discord.utils.get(
-                self.bot.modmail_guild.text_channels, topic=f"User ID: {recipient_id}"
+                self.bot.modmail_guild.text_channels, topic=f"`{recipient_id}`"
             )
             if channel:
                 thread = Thread(self, recipient or recipient_id, channel)
