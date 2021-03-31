@@ -11,7 +11,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class Warn(commands.Cog):
+class Moderation(commands.Cog):
     """
     ⚙ Moderation.
     """
@@ -170,4 +170,4 @@ class Warn(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Warn(bot))
+    bot.add_cog(Moderation(bot))
