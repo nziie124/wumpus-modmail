@@ -643,7 +643,7 @@ class Modmail(commands.Cog):
         )
         return await ctx.send(embed=embed)
     
-    @commands.command(aliases=["top.gg"])
+    @commands.command(aliases=["topgg"])
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def vote(self, ctx):
         """⬆ Shows our Top.gg voting link."""
