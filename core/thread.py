@@ -296,6 +296,7 @@ class Thread:
         embed = discord.Embed(
             color=color, description=f"{user.mention} `[{user.id}]` was created `{days(created)}`", timestamp=time
         )
+        embed.set_thumbnail(url=user.avatar_url)
 
         # if not role_names:
         #     embed.add_field(name='🛎 Mention', value=user.mention)
