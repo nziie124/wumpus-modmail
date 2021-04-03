@@ -667,7 +667,7 @@ class Utility(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def inactivity_notice(self, ctx, member:discord.Member):
-            """A command that lets a specified Staff member know that they are inactive."""
+        """A command that lets a specified Staff member know that they are inactive."""
     try:
         await member.send('What’s Up!\n\nThis is an automated message from the `WA Management Team`.\n\n*It has recently come to our attention that you have been a little inactive!* 💤 \n\nWe hope you are doing 👌 and staying safe. We would appreciate if you would  There are going to be directions in the announcements channel `[you will see after you verify]` on how to fill out a break request correctly.\n\n*Cheers!*\n`~` **Operations Management**\n*Wumpus Ads*')
         await ctx.send(f'**Notice sent to `{member.name}`!**')
