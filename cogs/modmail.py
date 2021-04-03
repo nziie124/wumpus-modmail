@@ -683,9 +683,9 @@ class Modmail(commands.Cog):
             color=discord.Colour.blurple(),
             timestamp=datetime.utcnow(),
         )
-            embed.add_field(name="Notes", value="If you have any questions, feel free to ask them in this ticket. However, we will **NOT** give you any answers or hints.\n\nIf you do not pass staff training within `2` weeks of being in the Staff Team, you will be **fired**!", inline=False)
-            embed.set_thumbnail(url=guild.icon_url)
-            embed.set_footer(text="Welcome to the Staff Team!", icon_url=ctx.message.author.avatar_url)
+        embed.add_field(name="Notes", value="If you have any questions, feel free to ask them in this ticket. However, we will **NOT** give you any answers or hints.\n\nIf you do not pass staff training within `2` weeks of being in the Staff Team, you will be **fired**!", inline=False)
+        embed.set_thumbnail(url=guild.icon_url)
+        embed.set_footer(text="Welcome to the Staff Team!", icon_url=ctx.message.author.avatar_url)
         return await ctx.send(embed=embed)
 
     @commands.command(cooldown_after_parsing=True)
