@@ -654,14 +654,6 @@ class Modmail(commands.Cog):
         return await ctx.send(embed=embed)
 
     @commands.command()
-    @checks.has_permissions(Permission.Level.ADMINISTRATOR)
-    async def testrole(self, ctx, member: discord.Member):
-        """Adds the given roles to the user."""
-        roles = [777720307380781083, 812079893768306729]
-        await member.add_roles(*[member.guild.get_role(role) for role in roles])
-        await ctx.send("Done!")
-
-    @commands.command()
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def inactivity(self, ctx, member: discord.Member):
         """💤 A command that lets a specified Staff member know that they are inactive."""
