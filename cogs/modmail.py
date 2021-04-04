@@ -25,7 +25,7 @@ logger = getLogger(__name__)
 
 
 class Modmail(commands.Cog):
-    """📬 Modmail Commands - `⭐` = New"""
+    """📬 Wumpus Support's Commands"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -632,7 +632,7 @@ class Modmail(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.SUPPORTER)
     async def raw(self, ctx, message_id: int=None):
-        """`[New]` - 📄 Prints out the raw content of an embed (codeblock)."""
+        """📄 Prints out the raw content of an embed (codeblock)."""
         if message_id is None:
             return await ctx.send(f"{ctx.message.author.mention}, please provide a message ID!")
         
