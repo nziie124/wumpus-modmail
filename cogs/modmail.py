@@ -666,14 +666,6 @@ class Modmail(commands.Cog):
             await ctx.send("**Their dms are closed or they blocked the bot.**")
 
     @commands.command()
-    @checks.has_permissions(Permission.Level.ADMINISTRATOR)
-    async def testrole(self, ctx, member: discord.Member):
-        """Adds the given roles to the user."""
-      roles = [782059709272031303, 826454962342592582]
-      await member.add_roles(*[member.guild.get_role(role) for role in roles])
-            await ctx.send("Done!")
-
-    @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def members(self, ctx):
         """👤 Prints out the current server's member count."""
