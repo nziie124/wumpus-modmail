@@ -709,7 +709,7 @@ class Modmail(commands.Cog):
         )
         embed.add_field(name="Notes", value="If you have any questions, feel free to ask them in this ticket. However, we will **NOT** give you any answers or hints.\n\nIf you do not pass staff training within `2` weeks of being in the Staff Team, you will be **fired**!", inline=False)
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/777782712878628934/6bc7165c78067d794d9ebe362397330e.png")
-        embed.set_footer(text="Welcome to the Staff Team!", icon_url="https://cdn.discordapp.com/icons/777720307334512670/a_cf3df3604dd3c3d6dbbd7b53d12ca1b3.gif?size=1024")
+        embed.set_footer(text="Welcome to the Staff Team!", icon_url="https://images-ext-2.discordapp.net/external/khDmTSzAbPjhFJPMQsTMLKbt1djMFUx3pvU6_0hPxfE/%3Fsize%3D1024/https/cdn.discordapp.com/icons/777720307334512670/a_a49173990fb80402d157880ae3ee61e5.gif")
         return await ctx.send(embed=embed)
 
     @commands.command(aliases=["importantlinks", "il"])
