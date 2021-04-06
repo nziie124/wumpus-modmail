@@ -125,6 +125,41 @@ class Modmail(commands.Cog):
             for owner_id in self.bot.bot_owner_ids:
                 await self.bot.update_perms(PermissionLevel.OWNER, owner_id)
 
+    @commands.command(usage="<member> [reason]")
+    @checks.has_permissions(PermissionLevel.MODERATOR)
+    async def warn(self, ctx, member: discord.Member = None, *, reason=None):
+        """
+        ⚠ Warns the specified member.
+        """
+        if member == None:
+            return await ctx.send_help(ctx.command)
+
+        if reason != None:
+            if not reason.endswith("."):
+                reason = reason + "."
+
+        msg = f"⚠ You have been warned in {ctx.guild.name}" + (
+            f" for: *{reason}*" if reason else "."
+        )
+
+        try:
+            await member.send(msg)
+        except discord.errors.Forbidden:
+            return await ctx.send(
+                embed=discord.Embed(
+                    title="Logged",
+                    description="❌ I couldn't warn them, they disabled DMs.",
+                    color=self.bot.main_color,
+                ).set_footer(text=f"{ctx.member.name} isnt DMed", icon_url=member.avatar_url)
+            )
+
+        await ctx.send(
+            embed=discord.Embed(
+                description=f"⚠ {member} has been warned.",
+                color=self.bot.main_color,
+            ).set_footer(text=f"{member.name} is now warned!", icon_url=member.avatar_url)
+        )
+
     @commands.command(usage="<amount>")
     @checks.has_permissions(PermissionLevel.OWNER)
     async def purge(self, ctx, amount: int = 1):
