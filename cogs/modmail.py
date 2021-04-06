@@ -128,7 +128,7 @@ class Modmail(commands.Cog):
     @commands.command(usage="<amount>")
     @checks.has_permissions(PermissionLevel.OWNER)
     async def purge(self, ctx, amount: int = 1):
-        """Purge the specified amount of messages."""
+        """⛔️ Purge the specified amount of messages."""
         max = 2000
         if amount > max:
             return await ctx.send(
