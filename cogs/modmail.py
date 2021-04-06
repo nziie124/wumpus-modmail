@@ -314,17 +314,17 @@ class Modmail(commands.Cog):
         except discord.errors.Forbidden:
             embed = discord.Embed(description="⚠ I don't have permission to do this!", color=0xff0000)
             return await ctx.send(embed=embed)
-        embed=discord.Embed(description=f"{ctx.author.mention} set a slowmode delay of `{time}` in {ctx.channel.mention}", color=0x06c9ff)
-        embed.set_author(name="Slowmode")
+        embed=discord.Embed(description=f"{ctx.author.mention} set a slowmode delay of `{time}` in {ctx.channel.mention}", color=discord.Colour.green())
+        embed.set_author(name="Slowmode", icon_url=self.bot.guild.icon_url)
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(aliases=["sm_off"])
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def slowmode_off(self, ctx, channel: discord.TextChannel = None):
         """Turn off the slowmode in a channel"""
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
-        embed=discord.Embed(description=f"{ctx.author.mention} turned off the slowmode in {ctx.channel.mention}", color=0x06c9ff)
+        embed=discord.Embed(description=f"{ctx.author.mention} turned off the slowmode in {ctx.channel.mention}", color=discord.Colour.green())
         embed.set_author(name="Slowmode", icon_url=self.bot.guild.icon_url)
         await ctx.send(embed=embed)
 
