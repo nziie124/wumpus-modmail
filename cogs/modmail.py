@@ -292,8 +292,6 @@ class Modmail(commands.Cog):
         """Set a slowmode to a channel
         It is not possible to set a slowmode longer than 6 hours
         """
-        if not channel:
-            channel = discord.TextChannel = None
 
         units = {
             "d": 86400,
@@ -312,7 +310,7 @@ class Modmail(commands.Cog):
             embed = discord.Embed(description="⚠ You can't slowmode a channel for longer than 6 hours!", color=0xff0000)
             return await ctx.send(embed=embed)
         try:
-            await channel.edit(slowmode_delay=seconds)
+            await ctx.channel.edit(slowmode_delay=seconds)
         except discord.errors.Forbidden:
             embed = discord.Embed(description="⚠ I don't have permission to do this!", color=0xff0000)
             return await ctx.send(embed=embed)
@@ -327,7 +325,7 @@ class Modmail(commands.Cog):
         if not channel:
             channel = ctx.channel
         seconds_off = 0
-        await channel.edit(slowmode_delay=seconds_off)
+        await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"{ctx.author.mention} turned off the slowmode in {channel.mention}", color=0x06c9ff)
         embed.set_author(name="Slow Mode")
         await ctx.send(embed=embed)
