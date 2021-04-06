@@ -314,8 +314,8 @@ class Modmail(commands.Cog):
         except discord.errors.Forbidden:
             embed = discord.Embed(description="⚠ I don't have permission to do this!", color=0xff0000)
             return await ctx.send(embed=embed)
-        embed=discord.Embed(description=f"{ctx.author.mention} set a slowmode delay of `{time}` in {channel.mention}", color=0x06c9ff)
-        embed.set_author(name="Slow Mode")
+        embed=discord.Embed(description=f"{ctx.author.mention} set a slowmode delay of `{time}` in {ctx.channel.mention}", color=0x06c9ff)
+        embed.set_author(name="Slowmode")
         await ctx.send(embed=embed)
 
     @commands.command()
