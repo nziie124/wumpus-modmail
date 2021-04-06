@@ -145,7 +145,7 @@ class Modmail(commands.Cog):
         ).set_footer(text="⚠ You are warned", icon_url=member.avatar_url)
 
         try:
-            await member.send(msg)
+            await member.send(embed=embed)
         except discord.errors.Forbidden:
             return await ctx.send(
                 embed=discord.Embed(
