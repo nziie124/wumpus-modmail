@@ -136,7 +136,7 @@ class Modmail(commands.Cog):
                     title="Error",
                     description=f"You can only purge up to 2000 messages.",
                     color=discord.Color.red(),
-                ).set_footer(text=f"Use {ctx.prefix}nuke to purge the entire chat.")
+                ).set_footer(text=f"Use {ctx.prefix}purge <amount> to purge.")
             )
 
         try:
@@ -150,7 +150,9 @@ class Modmail(commands.Cog):
                     color=discord.Color.red(),
                 ).set_footer(text="Please fix the permissions.")
             )
-
+        
+        messages = "messages" if amount > 1 else "message"
+        have = "have" if amount > 1 else "has"
 
         await ctx.send(
             embed=discord.Embed(
