@@ -322,8 +322,6 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def slowmode_off(self, ctx, channel: discord.TextChannel = None):
         """Turn off the slowmode in a channel"""
-        if not channel:
-            channel = ctx.channel
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"{ctx.author.mention} turned off the slowmode in {channel.mention}", color=0x06c9ff)
