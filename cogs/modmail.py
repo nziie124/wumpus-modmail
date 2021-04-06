@@ -125,6 +125,41 @@ class Modmail(commands.Cog):
             for owner_id in self.bot.bot_owner_ids:
                 await self.bot.update_perms(PermissionLevel.OWNER, owner_id)
 
+    @commands.command(usage="<amount>")
+    @checks.has_permissions(PermissionLevel.OWNER)
+    async def purge(self, ctx, amount: int = 1):
+        """Purge the specified amount of messages."""
+        max = 2000
+        if amount > max:
+            return await ctx.send(
+                embed=discord.Embed(
+                    title="Error",
+                    description=f"You can only purge up to 2000 messages.",
+                    color=discord.Color.red(),
+                ).set_footer(text=f"Use {ctx.prefix}nuke to purge the entire chat.")
+            )
+
+        try:
+            await ctx.message.delete()
+            await ctx.channel.purge(limit=amount)
+        except discord.errors.Forbidden:
+            return await ctx.send(
+                embed=discord.Embed(
+                    title="Error",
+                    description="I don't have enough permissions to purge messages.",
+                    color=discord.Color.red(),
+                ).set_footer(text="Please fix the permissions.")
+            )
+
+
+        await ctx.send(
+            embed=discord.Embed(
+                title="Success",
+                description=f"✅ Purged {amount} {messages}!",
+                color=self.bot.main_color,
+            )
+        )
+
     @commands.group(aliases=["snippets"], invoke_without_command=True)
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def snippet(self, ctx, *, name: str.lower = None):
