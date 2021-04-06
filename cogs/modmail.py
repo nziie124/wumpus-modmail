@@ -350,7 +350,7 @@ class Modmail(commands.Cog):
             embed = discord.Embed(description="⚠ I don't have permission to do this!", color=0xff0000)
             return await ctx.send(embed=embed)
         embed=discord.Embed(description=f"Set a slowmode delay of `{time}` in {ctx.channel.mention}", color=discord.Colour.green())
-        embed.set_author(name="Slowmode", icon_url=self.bot.guild.icon_url)
+        embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/611882231820058624/817845651869925406/timer.gif")
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["sm_off"])
@@ -360,7 +360,7 @@ class Modmail(commands.Cog):
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"Turned **off** the slowmode in {ctx.channel.mention}", color=discord.Colour.green())
-        embed.set_author(name="Slowmode", icon_url=self.bot.guild.icon_url)
+        embed.set_author(name="Slowmode", icon_url="https://cdn.discordapp.com/attachments/611882231820058624/817845651869925406/timer.gif")
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["transfer"], usage="<category> [options]")
