@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands,tasks
 import asyncio
 
+logger = getLogger(__name__)
+
 class Status(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
