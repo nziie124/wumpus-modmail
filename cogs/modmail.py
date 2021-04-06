@@ -159,7 +159,7 @@ class Modmail(commands.Cog):
                 title="Success",
                 description=f"✅ Purged {amount} {messages}!",
                 color=self.bot.main_color,
-            ), delete_after=5
+            ), delete_after=8
         )
 
     @commands.group(aliases=["snippets"], invoke_without_command=True)
