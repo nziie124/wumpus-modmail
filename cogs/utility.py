@@ -275,7 +275,7 @@ class Utility(commands.Cog):
             return
         channel = self.bot.guild.get_channel(777720307540295718)
         embed = discord.Embed(
-            title="Welcome!",
+            title=f"Welcome to {self.bot.guild.name}!",
             description=f"Welcome {member.mention}! - Wumpus seems very happy that you have joined us!\n\n**Please note that when you leave our server, **all** your advertisements will be deleted by our server bot!**\n\n``` Sponsored Servers [0] ```\n\n https://discord.gg/ud3nhjuarG - `[Shiny Z's Dominion]`",
             timestamp=datetime.utcnow(),
             color=discord.Colour.random())
