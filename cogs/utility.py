@@ -276,11 +276,12 @@ class Utility(commands.Cog):
         channel = self.bot.guild.get_channel(777720307540295718)
         embed = discord.Embed(
             title="Welcome!",
-            description=f"Welcome to the server {member.mention}! - This welcome message is currently being writen and is not finished yet. Please bare with us! `-` All the information about this server should have been sent to you via DMs by <@!155149108183695360>. Soon, all that information will be on this message.",
+            description=f"Welcome {member.mention}! - Wumpus seems very happy that you have joined us!\n\n**Please note that when you leave our server, **all** your advertisements will be deleted by our server bot!**\n\n``` Sponsored Servers [0] ```\n\n https://discord.gg/ud3nhjuarG - `[Shiny Z's Dominion]`",
             timestamp=datetime.utcnow(),
             color=discord.Colour.random())
         embed.set_footer(text=f"👤 User ID: {member.id}", icon_url=member.avatar_url)
         embed.set_thumbnail(url=member.avatar_url)
+        embed.set_image(url="https://cdn.discordapp.com/attachments/797497544744632330/821841899282497546/wumpus.png")
         await channel.send(content=f"📥 **Welcome {member.mention}!**", embed=embed)
 
     @commands.command(aliases=["info"])
