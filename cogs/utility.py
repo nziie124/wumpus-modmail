@@ -269,21 +269,6 @@ class Utility(commands.Cog):
     def cog_unload(self):
         self.bot.help_command = self._original_help_command
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member: discord.Member):
-        if member.guild.id != 777720307334512670:
-            return
-        channel = self.bot.guild.get_channel(777720307540295718)
-        embed = discord.Embed(
-            title=f"Welcome to {self.bot.guild.name}!",
-            description=f"Welcome {member.mention}! - Wumpus seems very happy that you have joined us!\n\n**Please note that when you leave our server, **all** your advertisements will be deleted by our server bot!**\n\n``` Sponsored Servers [1] ```\n\n https://discord.gg/ud3nhjuarG - `[Shiny Z's Dominion]`",
-            timestamp=datetime.utcnow(),
-            color=discord.Colour.random())
-        embed.set_footer(text=f"👤 User ID: {member.id}", icon_url=member.avatar_url)
-        embed.set_thumbnail(url=member.avatar_url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/797497544744632330/821841899282497546/wumpus.png")
-        await channel.send(content=f"📥 **Welcome {member.mention}!**", embed=embed)
-
     @commands.command(aliases=["info"])
     @checks.has_permissions(PermissionLevel.OWNER)
     @utils.trigger_typing
