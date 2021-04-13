@@ -1370,7 +1370,7 @@ class ModmailBot(commands.Bot):
                 return
         except discord.NotFound:
             return
-        embed.set_footer(text=f"💬 Message ID: {message.id} from {message.author}.")
+        embed.set_footer(text=f"💬 Message ID: {message.id}")
         return await message.channel.send(embed=embed)
 
     async def on_bulk_message_delete(self, messages):
