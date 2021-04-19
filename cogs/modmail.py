@@ -139,6 +139,14 @@ class Modmail(commands.Cog):
         await ctx.send(content=ctx.author.mention, embed=embed)
 
     @commands.command()
+    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    async def overclaim(self, ctx):
+        """🔗 Overclaims the current thread as yours [Managament Only]."""
+        embed = discord.Embed(title="Thread Overclaimed!", description=f"{ctx.author.mention} has overclaimed this thread.", color=ctx.author.color, timestamp=datetime.utcnow())
+        embed.set_footer(text=f"Thread - Recipient ID: {ctx.channel.topic}", icon_url=ctx.author.avatar_url)
+        await ctx.send(content=ctx.author.mention, embed=embed)
+
+    @commands.command()
     @checks.thread_only()
     async def id(self, ctx):
         """💬 Prints out the thread user's ID."""
