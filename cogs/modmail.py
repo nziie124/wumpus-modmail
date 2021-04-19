@@ -124,21 +124,21 @@ class Modmail(commands.Cog):
             for owner_id in self.bot.bot_owner_ids:
                 await self.bot.update_perms(PermissionLevel.OWNER, owner_id)
 
-    @commands.command()
+    @commands.command(aliases=["mine"])
     async def claim(self, ctx):
         """🔗 Claims the current thread as yours."""
         embed = discord.Embed(title="Thread Claimed!", description=f"{ctx.author.mention} has claimed this thread.", color=ctx.author.color, timestamp=datetime.utcnow())
         embed.set_footer(text=f"Thread - Recipient ID: {ctx.channel.topic}", icon_url=ctx.author.avatar_url)
         await ctx.send(content=ctx.author.mention, embed=embed)
 
-    @commands.command()
+    @commands.command(aliases=["unclaim"])
     async def rclaim(self, ctx):
         """🔗 Un-claims the current thread as yours."""
         embed = discord.Embed(title="Thread Unclaimed!", description=f"{ctx.author.mention} has un-claimed this thread.\n\n**Thread is up for grabs!**", color=ctx.author.color, timestamp=datetime.utcnow())
         embed.set_footer(text=f"Thread - Recipient ID: {ctx.channel.topic}", icon_url=ctx.author.avatar_url)
         await ctx.send(content=ctx.author.mention, embed=embed)
 
-    @commands.command()
+    @commands.command(aliases=["oclaim"])
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def overclaim(self, ctx):
         """🔗 Overclaims the current thread as yours [Managament Only]."""
