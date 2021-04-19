@@ -132,6 +132,13 @@ class Modmail(commands.Cog):
         await ctx.send(content=ctx.author.mention, embed=embed)
 
     @commands.command()
+    async def rclaim(self, ctx):
+        """🔗 Un-claims the current thread as yours."""
+        embed = discord.Embed(title="Thread Unclaimed!", description=f"{ctx.author.mention} has un-claimed this thread.\n\n**Thread is up for grabs!**", color=ctx.author.color, timestamp=datetime.utcnow())
+        embed.set_footer(text=f"Thread - Recipient ID: {ctx.channel.topic}", icon_url=ctx.author.avatar_url)
+        await ctx.send(content=ctx.author.mention, embed=embed)
+
+    @commands.command()
     @checks.thread_only()
     async def id(self, ctx):
         """💬 Prints out the thread user's ID."""
