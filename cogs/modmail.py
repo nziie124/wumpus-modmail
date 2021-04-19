@@ -125,7 +125,6 @@ class Modmail(commands.Cog):
                 await self.bot.update_perms(PermissionLevel.OWNER, owner_id)
 
     @commands.command()
-    @commands.guild_only()
     async def claim(self, ctx):
         """🔗 Claims the current thread as yours."""
         embed = discord.Embed(title="Thread Claimed!", description=f"{ctx.author.mention} has claimed this thread.", color=ctx.author.color, timestamp=datetime.utcnow())
