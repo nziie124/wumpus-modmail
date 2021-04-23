@@ -471,18 +471,12 @@ class Modmail(commands.Cog):
         mentions = self.bot.config["notification_squad"][str(thread.id)]
 
         if mention in mentions:
-            embed = discord.Embed(
-                color=self.bot.error_color,
-                description=f"🔔 {mention} is already going to be mentioned!",
-            )
+            await ctx.message.reply(f"🔔 {mention} is already going to be mentioned!")
+
         else:
             mentions.append(mention)
             await self.bot.config.update()
-            embed = discord.Embed(
-                color=self.bot.main_color,
-                description=f"🔔 {mention} will be mentioned on the next message received.",
-            )
-        return await ctx.send(embed=embed)
+            await ctx.messages.reply(f"🔔 {mention} will be mentioned on the next message received.")
 
     @commands.command(aliases=["unalert", "unpingme"])
     @checks.has_permissions(PermissionLevel.SUPPORTER)
