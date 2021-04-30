@@ -202,7 +202,7 @@ class Thread:
             embed.title = self.bot.config["thread_creation_title"]
 
             if creator is None or creator == recipient:
-                msg = await recipient.send(embed=embed)
+                msg = await recipient.send(content="<a:wumpus_thbs_Up:798654709694333019> **Thread Created!**", embed=embed)
 
                 if recipient_thread_close:
                     close_emoji = self.bot.config["close_emoji"]
