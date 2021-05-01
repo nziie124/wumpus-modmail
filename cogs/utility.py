@@ -3,9 +3,7 @@ import inspect
 import os
 import random
 import re
-import time
 import traceback
-from discord.ext.commands.cooldowns import BucketType
 from contextlib import redirect_stdout
 from datetime import datetime
 from difflib import get_close_matches
@@ -328,7 +326,6 @@ class Utility(commands.Cog):
         embed.set_footer(text=footer)
         await ctx.send(embed=embed)
 
-    
     @commands.group(invoke_without_command=True)
     @checks.has_permissions(PermissionLevel.OWNER)
     @utils.trigger_typing
@@ -609,13 +606,16 @@ class Utility(commands.Cog):
         logger.info("Starting presence loop.")
 
     @commands.command()
-    @commands.cooldown(1, 5, BucketType.guild)
+    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @utils.trigger_typing
     async def ping(self, ctx):
-      start = time.perf_counter()
-      message = await ctx.send("🏓 Ping?")
-      end = time.perf_counter()
-      duration = (end - start) * 1000
-      await message.edit(content='🏓 Pong! {:.2f}ms'.format(duration))
+        """🏓 Pong! Returns your websocket latency."""
+        embed = discord.Embed(
+            title="🏓 Pong! Websocket Latency:",
+            description=f"`{self.bot.ws.latency * 1000:.4f}ms`",
+            color=discord.Colour.random(),
+        )
+        return await ctx.send(embed=embed)
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
@@ -2055,4 +2055,3 @@ class Utility(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Utility(bot))
-
